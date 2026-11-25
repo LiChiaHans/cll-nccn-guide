@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLL / SLL 慢性淋巴球性白血病 — NCCN v2.2027 臨床速查手冊</title>
+  <style>
+    :root {
+      --bg: #f3f7f6;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #dce5e3;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0f766e;
+      --primary-light: #ccfbf1;
+      --accent: #0284c7;
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;
+      --danger-text: #991b1b;
+      --warn-bg: #fffbeb;
+      --warn-border: #f59e0b;
+      --warn-text: #92400e;
+      --ok-bg: #f0fdf4;
+      --ok-border: #22c55e;
+      --ok-text: #166534;
+      --info-bg: #eff6ff;
+      --info-border: #3b82f6;
+      --info-text: #1e40af;
+      --purple-bg: #f5f3ff;
+      --purple-border: #8b5cf6;
+      --purple-text: #5b21b6;
+      --badge-bg: #e2e8f0;
+      --badge-text: #334155;
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      --radius: 12px;
+      --sidebar-w: 295px;
+      --topbar-h: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --border: #293548;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #2dd4bf;
+      --primary-light: #134e4a;
+      --accent: #38bdf8;
+      --danger-bg: #2c1215;
+      --danger-border: #f87171;
+      --danger-text: #fca5a5;
+      --warn-bg: #2b200a;
+      --warn-border: #fbbf24;
+      --warn-text: #fde68a;
+      --ok-bg: #0b2619;
+      --ok-border: #4ade80;
+      --ok-text: #86efac;
+      --info-bg: #0f213d;
+      --info-border: #60a5fa;
+      --info-text: #93c5fd;
+      --purple-bg: #211638;
+      --purple-border: #a78bfa;
+      --purple-text: #ddd6fe;
+      --badge-bg: #1e293b;
+      --badge-text: #cbd5e1;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--topbar-h);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 18px;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 16.5px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .brand .ver {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .portal-link {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 5px 11px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all .15s;
+      font-weight: 500;
+    }
+    .portal-link:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .search-wrap {
+      flex: 1;
+      max-width: 440px;
+      margin-left: auto;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 8px 34px 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: none;
+      font-size: 15px;
+    }
+    .search-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .theme-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .theme-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: var(--topbar-h);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 14px 12px 36px;
+      z-index: 90;
+      transition: transform .25s ease;
+    }
+    .sidebar-home-btn {
+      display: none;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 13.5px;
+      text-decoration: none;
+      border: 1px solid var(--primary);
+    }
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin: 14px 10px 6px;
+    }
+    .nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13.5px;
+      margin-bottom: 2px;
+      transition: background .15s, color .15s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .nav-code {
+      font-size: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 1px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    /* Main */
+    .main {
+      margin-left: var(--sidebar-w);
+      margin-top: var(--topbar-h);
+      padding: 26px 30px 80px;
+      max-width: 1180px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 52%, #0284c7 100%);
+      color: #ffffff;
+      padding: 26px 28px;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 24px; line-height: 1.3; }
+    .hero p { margin: 0; opacity: 0.93; font-size: 14px; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.18);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Quick Jump Chips */
+    .quick-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* Sections */
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: calc(var(--topbar-h) + 16px);
+    }
+    .sec-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    .sec-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--primary);
+    }
+    .sec-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .code-tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 20px 0 10px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h4 {
+      font-size: 14.5px;
+      margin: 14px 0 6px;
+      color: var(--primary);
+    }
+    p { margin: 8px 0; }
+    ul, ol { margin: 6px 0 12px; padding-left: 22px; }
+    li { margin-bottom: 5px; }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--info-border);
+      background: var(--info-bg);
+      color: var(--info-text);
+      padding: 12px 15px;
+      border-radius: 0 10px 10px 0;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+    .callout.danger {
+      border-color: var(--danger-border);
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+    .callout.warn {
+      border-color: var(--warn-border);
+      background: var(--warn-bg);
+      color: var(--warn-text);
+    }
+    .callout.ok {
+      border-color: var(--ok-border);
+      background: var(--ok-bg);
+      color: var(--ok-text);
+    }
+    .callout.purple {
+      border-color: var(--purple-border);
+      background: var(--purple-bg);
+      color: var(--purple-text);
+    }
+    .callout strong { font-weight: 700; }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    .b-cat1 { background: #dcfce7; color: #166534; }
+    .b-cat2b { background: #fef3c7; color: #92400e; }
+    .b-pref { background: #dbeafe; color: #1e40af; }
+    .b-new { background: #f3e8ff; color: #6b21a8; }
+    .b-warn { background: #fee2e2; color: #991b1b; }
+    [data-theme="dark"] .b-cat1 { background: #14532d; color: #86efac; }
+    [data-theme="dark"] .b-cat2b { background: #78350f; color: #fde68a; }
+    [data-theme="dark"] .b-pref { background: #1e3a8a; color: #93c5fd; }
+    [data-theme="dark"] .b-new { background: #4c1d95; color: #ddd6fe; }
+    [data-theme="dark"] .b-warn { background: #7f1d1d; color: #fca5a5; }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 12px 0;
+    }
+    .box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .box h4 { margin-top: 0; }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 12px 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 9px 11px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface-alt); }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+    }
+    .tab-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+    [data-theme="dark"] .tab-btn.active { color: #0b1120; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Flow steps */
+    .flow-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .flow-step {
+      flex: 1 1 200px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--primary);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+    }
+    .flow-step .step-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* Calculator */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin: 12px 0 16px;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+    .calc-field select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13.5px;
+    }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      padding: 8px 11px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .check-item input { accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; }
+    .calc-result {
+      background: var(--primary-light);
+      border: 1px solid var(--primary);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+    .calc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 13px;
+    }
+    .calc-card .cc-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .calc-card .cc-val {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 3px;
+    }
+    .calc-card .cc-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    mark.hl {
+      background: #fde047;
+      color: #0f172a;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    /* Back to top */
+    #topBtn {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: none;
+      box-shadow: var(--shadow);
+      z-index: 95;
+    }
+    [data-theme="dark"] #topBtn { color: #0b1120; }
+
+    .footer-note {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 960px) {
+      .menu-btn { display: inline-block; }
+      .portal-link { display: none; }
+      .sidebar-home-btn { display: block; }
+      .sidebar {
+        transform: translateX(-100%);
+        box-shadow: var(--shadow);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .main {
+        margin-left: 0;
+        padding: 20px 16px 70px;
+      }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="開啟目錄">☰</button>
+    <div class="brand">
+      <span>🩸 CLL / SLL 臨床速查手冊</span>
+      <span class="ver">NCCN v2.2027</span>
+    </div>
+    <a class="portal-link" href="https://lichiahans.github.io/hematology-portal/" title="回到血液科臨床資源入口網首頁">🏠 回到首頁（入口網）</a>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="全文搜尋：藥物、del(17p)、IGHV、Pirtobrutinib、Richter、TLS..." aria-label="搜尋指引內容" />
+      <button class="search-clear" id="searchClear" aria-label="清除搜尋">✕</button>
+    </div>
+    <span class="search-count" id="searchCount"></span>
+    <button class="theme-btn" id="themeBtn" title="切換深色／淺色模式">🌙 深色</button>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar" aria-label="章節快速導覽">
+    <a class="sidebar-home-btn" href="https://lichiahans.github.io/hematology-portal/">🏠 回到首頁（血液科入口網）</a>
+
+    <div class="nav-group-title">版本與核心診斷</div>
+    <a class="nav-link" href="#updates"><span>🆕 v2.2027 更新重點</span><span class="nav-code">UPDATES</span></a>
+    <a class="nav-link" href="#diagnosis"><span>🔍 診斷標準、MBL 與檢查</span><span class="nav-code">CSLL-1/2</span></a>
+    <a class="nav-link" href="#staging"><span>📊 分期系統與 CLL-IPI 計算機</span><span class="nav-code">CSLL-B</span></a>
+    <a class="nav-link" href="#indications"><span>🚦 治療適應症與起始前評估</span><span class="nav-code">CSLL-3</span></a>
+
+    <div class="nav-group-title">分子預後與治療路徑</div>
+    <a class="nav-link" href="#prognostic"><span>🧬 預後因子與抗藥性突變</span><span class="nav-code">CSLL-A</span></a>
+    <a class="nav-link" href="#firstline"><span>💊 第一線治療與建議方案</span><span class="nav-code">CSLL-D 1</span></a>
+    <a class="nav-link" href="#sequencing"><span>🔄 序貫路徑與 R/R 治療</span><span class="nav-code">CSLL-4/5/D2</span></a>
+
+    <div class="nav-group-title">療效、MRD 與 Richter 轉化</div>
+    <a class="nav-link" href="#mrd"><span>🎯 iwCLL 療效與 MRD 評估</span><span class="nav-code">CSLL-E</span></a>
+    <a class="nav-link" href="#richter"><span>⚡ Richter 組織學轉化</span><span class="nav-code">HT-1~HT-A</span></a>
+
+    <div class="nav-group-title">支持性照護與附錄</div>
+    <a class="nav-link" href="#supportive"><span>🛡️ TLS、感染、出血與疫苗</span><span class="nav-code">CSLL-C</span></a>
+    <a class="nav-link" href="#appendix"><span>📖 證據等級與縮寫表</span><span class="nav-code">CAT/ABBR</span></a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main" id="contentRoot">
+    <!-- Hero -->
+    <div class="hero">
+      <h1>慢性淋巴球性白血病／小淋巴球性淋巴瘤 (CLL/SLL) 臨床速查手冊</h1>
+      <p>依據 NCCN Clinical Practice Guidelines in Oncology: Chronic Lymphocytic Leukemia/Small Lymphocytic Lymphoma (Version 2.2027 — September 28, 2026) 完整繁體中文重點整理、治療決策與互動工具。</p>
+      <div class="hero-meta">
+        <span class="hero-pill">📅 NCCN v2.2027 (2026/09/28)</span>
+        <span class="hero-pill">🧮 Rai / Binet / CLL-IPI 計算機</span>
+        <span class="hero-pill">🧪 Venetoclax TLS 風險分層工具</span>
+        <span class="hero-pill">⌨️ 按 / 快速全文檢索</span>
+      </div>
+    </div>
+
+    <!-- Quick Jump Chips -->
+    <div class="quick-bar">
+      <a class="chip" href="#updates">🆕 v2.2027 更新</a>
+      <a class="chip" href="#diagnosis">🔍 CLL/SLL/MBL 診斷</a>
+      <a class="chip" href="#staging">🧮 CLL-IPI 計算機</a>
+      <a class="chip" href="#indications">🚦 治療適應症</a>
+      <a class="chip" href="#prognostic">🧬 FISH/TP53/IGHV</a>
+      <a class="chip" href="#firstline">💊 一線方案</a>
+      <a class="chip" href="#sequencing">🔄 R/R 與 BTKi 停藥警語</a>
+      <a class="chip" href="#mrd">🎯 MRD 導向治療</a>
+      <a class="chip" href="#richter">⚡ Richter 轉化</a>
+      <a class="chip" href="#supportive">🛡️ TLS / HBV / 出血</a>
+    </div>
+
+    <!-- 1. UPDATES -->
+    <section class="card" id="updates">
+      <div class="sec-header">
+        <h2>1. Version 2.2027 與 1.2027 重大更新重點</h2>
+        <div class="sec-tags"><span class="code-tag">UPDATES</span><span class="badge b-new">2026/09/28</span></div>
+      </div>
+
+      <div class="callout purple">
+        <strong>Version 2.2027 (2026/09/28) 核心變更：</strong>
+        <ul>
+          <li><strong>二線與後續治療新增首選方案 (CSLL-D 2/5)</strong>：不論是否具 <code>del(17p)/TP53</code> 突變，新增 <strong>Venetoclax / Pirtobrutinib + Rituximab</strong>（基於第 3 期 <strong>BRUIN CLL-322</strong> 試驗，<em>Lancet</em> 2026）：
+            <ul>
+              <li>先前接受過 cBTKi 治療者：<span class="badge b-cat1">Category 1</span></li>
+              <li>先前接受過 BCL2i 治療者：<span class="badge b-pref">Category 2A</span></li>
+            </ul>
+          </li>
+          <li><strong>BCL2i 再治療註腳修訂 (CSLL-5A Footnote aa / CSLL-D 2/5)</strong>：緩解後復發之選項明確列出 Venetoclax + anti-CD20 mAb（Obinutuzumab 優先）、Venetoclax + cBTKi、<strong>Venetoclax + ncBTKi + Rituximab</strong>，或單藥 Venetoclax（連續）。</li>
+          <li><strong>個體化治療聲明 (CSLL-D 1/5)</strong>：表頭新增「方案雖依專家偏好排序，但均為適當選項，醫師應依臨床與疾病特徵、預期耐受性及病人偏好個體化決策，一般性指引不應取代個體化臨床判斷」。</li>
+          <li><strong>Fit vs. Frail 定義補充 (CSLL-D 3/5 Footnote h)</strong>：應依臨床評估（年齡、共病、各方案預期副作用與耐受性）區分健壯與衰弱病人，目前尚無經驗證的單一臨床工具。</li>
+        </ul>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>Version 1.2027 診斷、分期與治療更新</h4>
+          <ul>
+            <li><strong>診斷與檢查 (CSLL-1/2)</strong>：流式細胞診斷 CLL 須加做 FISH <code>t(11;14)</code> 排除 MCL；Workup 必檢新增周邊血淋巴球流式細胞免疫表型；SPEP/SIFE 限於免疫球蛋白升高者。</li>
+            <li><strong>一線首選重組 (CSLL-D 1/5)</strong>：無 <code>del(17p)/TP53</code> 一線方案改依體能狀態（<strong>Frail 衰弱 vs. Fit 健壯 [IGHV 突變 / 未突變]</strong>）排序。</li>
+            <li><strong>一線新增 Pirtobrutinib (CSLL-D 1A/5)</strong>：列於特定情況 (Cat 2A)，<strong>僅限高齡合併心臟共病、終生可能只需一次治療者</strong>（因惡化後序貫與 cBTKi 交叉抗藥資料不足）。</li>
+            <li><strong>二線其他推薦 (CSLL-D 2/5)</strong>：由 Venetoclax/Ibrutinib (2B) 擴大為 <strong>Venetoclax/cBTKi (Acalabrutinib, Ibrutinib, Zanubrutinib)</strong> 限期療程（固定或 MRD 導向）。</li>
+            <li><strong>早期轉介 CAR-T (CSLL-4/5A)</strong>：BCL2i+cBTKi 惡化或雙重暴露 (BTKi + BCL2i) 後，改用 ncBTKi 或其他方案時皆強調<strong>轉介評估 CAR-T 資格</strong>。</li>
+            <li><strong>分期移除 (CSLL-B 2/2)</strong>：Lugano 分期表移除「Stage II bulky」列。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Version 1.2027 支持性照護、MRD 與 Richter 更新</h4>
+          <ul>
+            <li><strong>BTKi 停藥爆發性反彈警語 (CSLL-5A / CSLL-C 2/5)</strong>：BTKi 惡化時突然停藥可能導致<strong>爆發性腫瘤反彈 (explosive disease flare)</strong>、PET SUV 升高與切片<strong>偽轉化 (pseudo-transformation)</strong>；轉接 Venetoclax 爬坡期重疊 BTKi 安全且有助控病。</li>
+            <li><strong>HBV 預防 (CSLL-C 1/5)</strong>：<code>HBcAb+</code> 除非為 IVIG 導致，皆建議預防性抗病毒（Entecavir 首選）。</li>
+            <li><strong>TLS / G6PD (CSLL-C 3/5)</strong>：Rasburicase 前 G6PD 檢測由「必須」改為「建議 (recommended)」，若延遲應謹慎使用（已知 G6PD 缺乏仍禁忌）。</li>
+            <li><strong>AIHA / ITP / 出血 / 疫苗 (CSLL-C 4~5)</strong>：類固醇無效或復發 AIHA 新增 <strong>BTKi</strong> 治療；BTKi 做<strong>骨髓穿刺/切片通常不需停藥</strong>；RSV 疫苗單劑適用全體 CLL/SLL（含 &lt;60 歲）；新增 CAR-T 後再接種建議。</li>
+            <li><strong>MRD 評估 (CSLL-E)</strong>：抗 CD20 單抗給藥後 3 個月內測周邊血 MRD 可能因周邊 B 細胞優先清除而低估殘留病灶。</li>
+            <li><strong>Richter 轉化 (HT-1 / HT-A)</strong>：CLL 背景中散在腫瘤性 HRS 細胞表現類似典型 CHL 轉化（須與 EBV 再活化區分）；BTKi 方案新增 <strong>Pirtobrutinib/Venetoclax + Obinutuzumab</strong> (Cat 2A)。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DIAGNOSIS & WORKUP -->
+    <section class="card" id="diagnosis">
+      <div class="sec-header">
+        <h2>2. 診斷標準、MBL 鑑別與初診檢查</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-1</span><span class="code-tag">CSLL-1A</span><span class="code-tag">CSLL-2</span></div>
+      </div>
+
+      <h3>CLL vs. SLL vs. MBL 核心診斷比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>疾病實體</th>
+              <th>周邊血單株 B 淋巴球數</th>
+              <th>臨床與病理必要條件</th>
+              <th>處置方向</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CLL</strong><br>慢性淋巴球性白血病</td>
+              <td><strong>≥ 5 × 10⁹/L</strong><br>(≥ 5,000/mm³)</td>
+              <td>
+                • 周邊血流式細胞儀 (Flow cytometry) 即可確立診斷，<strong>一般不需骨髓切片</strong>。<br>
+                • 需計算絕對單株 B 淋巴球數，並加做 <strong>FISH t(11;14)</strong> 排除被套細胞淋巴瘤 (MCL)。
+              </td>
+              <td>進入 Workup (CSLL-2) → 評估治療適應症 (CSLL-3)</td>
+            </tr>
+            <tr>
+              <td><strong>SLL</strong><br>小淋巴球性淋巴瘤</td>
+              <td><strong>≤ 5 × 10⁹/L</strong><br>(&lt; 5,000/mm³)</td>
+              <td>
+                • 必須有<strong>淋巴結腫大及／或脾臟腫大</strong>。<br>
+                • 建議<strong>切除性或切開性淋巴結切片</strong>確診（須見淋巴結結構破壞 effacement；反應性淋巴結亦可能見類似表型細胞）。<br>
+                • 單純細針抽吸 (FNA) 不足；不易切除時可用多次粗針切片合併輔助技術。若周邊血與淋巴結無法確診，才考慮骨髓穿刺＋切片。
+              </td>
+              <td>進入 Workup (CSLL-2) → 區分局部 Stage I 或 Stage II–IV</td>
+            </tr>
+            <tr>
+              <td><strong>MBL</strong><br>單株 B 細胞淋巴球增多症</td>
+              <td><strong>&lt; 5 × 10⁹/L</strong><br>且持續 &gt; 3 個月</td>
+              <td>
+                • 所有可觸摸淋巴結 <strong>&lt; 1.5 cm</strong>。<br>
+                • 無貧血、無血小板低下、無器官腫大、無全身性症狀 (B symptoms)。<br>
+                • 分為 Low-count (&lt;0.5 × 10⁹/L，極少進展) 與 High-count (0.5–4.9 × 10⁹/L，每年約 1%–2% 進展為需治療之 CLL)。骨髓檢查無助診斷。
+              </td>
+              <td><strong>定期觀察 (Observe)</strong><br>不需常規 CT 追蹤</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>典型免疫表型與 MCL 鑑別診斷</h4>
+          <ul>
+            <li><strong>流式細胞儀必測組合</strong>：<code>kappa/lambda</code>, <code>CD19</code>, <code>CD20</code>, <code>CD5</code>, <code>CD23</code>, <code>CD10</code>, <code>CD200</code>。</li>
+            <li><strong>IHC 必測組合 (組織切片)</strong>：<code>CD3</code>, <code>CD5</code>, <code>CD10</code>, <code>CD20</code>, <code>CD23</code>, <code>cyclin D1</code>, <code>LEF1</code>, <code>SOX11</code>。</li>
+            <li><strong>CLL/SLL 典型表型</strong>：<code>CD5+</code>, <code>CD23+</code>, <code>CD43+/-</code>, <code>CD10-</code>, <code>CD19+</code>, <code>CD20 dim</code>, <code>sIg dim+</code>, <code>cyclin D1-</code>, <code>CD200+</code>, <code>LEF1+</code>。</li>
+            <li><strong>排除 MCL (被套細胞淋巴瘤)</strong>：所有流式診斷個案皆應做 <strong>FISH t(11;14)</strong>（尤其非典型表型如 CD23 dim/-, CD20 bright, sIg bright）；MCL 通常 <code>CD200-</code>，若懷疑 cyclin D1 陰性 MCL，<code>LEF1</code> 與 <code>SOX11</code> 極具鑑別價值。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>預後與治療決策必備分子檢測</h4>
+          <ul>
+            <li><strong>間期 FISH</strong>：檢測 <code>+12</code>、<code>del(11q)</code>、<code>del(13q)</code>、<code>del(17p)</code>。</li>
+            <li><strong><em>TP53</em> 基因定序</strong>：建議使用高靈敏度 NGS（可偵測低至 5% VAF，優於 Sanger 的 10%–20%）。</li>
+            <li><strong>CpG 刺激中期染色體核型 (Metaphase karyotype)</strong>：偵測複雜核型 (Complex Karyotype, CK)。</li>
+            <li><strong><em>IGHV</em> 突變狀態分子檢測</strong>：終生不會改變，若起始治療前已做過，<strong>不需重複檢測</strong>。</li>
+            <li><strong>血清 β2-microglobulin (β2M)</strong>：評估腫瘤負荷與 CLL-IPI。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>初診檢查清單 (Workup — CSLL-2)</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>必要項目 (Essential)</h4>
+          <ul>
+            <li>周邊血淋巴球流式細胞免疫表型分析 <span class="badge b-new">v1.2027</span></li>
+            <li>病史與理學檢查（測量肝、脾大小及可觸摸淋巴結）</li>
+            <li>體能狀態 (ECOG PS) 與 B 症狀評估</li>
+            <li>全血球計數與分類 (CBC with differential)</li>
+            <li>完整生化代謝檢驗 (CMP)</li>
+            <li>β2-microglobulin</li>
+            <li>心理困擾與社會決定因素評估 (NCCN Distress Thermometer)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>特定情況下有用 (Useful Under Certain Circumstances)</h4>
+          <ul>
+            <li>免疫球蛋白定量 (Quantitative Ig)；<strong>免疫球蛋白升高者</strong>加做 SPEP + SIFE（排除 Waldenström 等單株球蛋白病）</li>
+            <li>貧血者：網狀紅血球 (Reticulocyte)、Haptoglobin、直接 Coombs 試驗 (DAT)</li>
+            <li><strong>顯影劑胸／腹／骨盆 CT</strong>：僅在臨床有指徵時（如大腫塊症狀、<strong>啟動 Venetoclax 前評估 TLS 風險</strong>）</li>
+            <li>尿酸 (Uric acid)、LDH</li>
+            <li>單側骨髓穿刺＋切片（鑑別免疫性或疾病相關血球低下）</li>
+            <li><strong>預計治療者</strong>：B 型肝炎（HBsAg + HBcAb；高風險加測 HBeAg）與 C 型肝炎篩檢</li>
+            <li>育齡病人驗孕、討論生育保存（精子冷凍、IVF、卵子／卵巢組織冷凍）</li>
+            <li><strong>全身 FDG-PET/CT</strong>：僅在<strong>懷疑組織學轉化 (Richter)</strong> 時用來導引淋巴結切片</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <strong>影像檢查重要原則 (Footnote e &amp; g)：</strong>非臨床試驗情境下，<strong>不需常規使用 CT</strong> 進行診斷、連續監測、追蹤或評估治療反應／惡化；CT 僅建議用於評估大腫塊症狀、SLL 療效評估，或<strong>啟動 Venetoclax 前評估 TLS 風險</strong>。
+      </div>
+    </section>
+
+    <!-- 3. STAGING & CALCULATOR -->
+    <section class="card" id="staging">
+      <div class="sec-header">
+        <h2>3. 分期系統與互動式 Rai / Binet / CLL-IPI 計算機</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-B 1/2</span><span class="code-tag">CSLL-B 2/2</span></div>
+      </div>
+
+      <h3>🧮 互動式 CLL 分期與 CLL-IPI 預後計算機</h3>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="cllAge">年齡 (Age)</label>
+          <select id="cllAge">
+            <option value="0">≤ 65 歲 (0 分)</option>
+            <option value="1">&gt; 65 歲 (+1 分)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllHb">血紅素 (Hemoglobin)</label>
+          <select id="cllHb">
+            <option value="normal">≥ 11.0 g/dL</option>
+            <option value="mid">10.0 – 10.9 g/dL (Rai III / Binet A-B)</option>
+            <option value="low">&lt; 10.0 g/dL (Rai III / Binet C)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllPlt">血小板 (Platelets)</label>
+          <select id="cllPlt">
+            <option value="normal">≥ 100,000/mm³</option>
+            <option value="low">&lt; 100,000/mm³ (Rai IV / Binet C)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllAreas">淋巴區域腫大數 (Binet 5 區：頸/腋/鼠蹊/脾/肝)</label>
+          <select id="cllAreas">
+            <option value="0">0 區（無淋巴結或肝脾腫大）</option>
+            <option value="1">1–2 區（僅淋巴結腫大）</option>
+            <option value="2">1–2 區（含肝或脾腫大）</option>
+            <option value="3">≥ 3 區（僅淋巴結腫大）</option>
+            <option value="4">≥ 3 區（含肝或脾腫大）</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllB2m">血清 β2-microglobulin</label>
+          <select id="cllB2m">
+            <option value="0">≤ 3.5 mg/L (0 分)</option>
+            <option value="2">&gt; 3.5 mg/L (+2 分)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllIghv">IGHV 突變狀態</label>
+          <select id="cllIghv">
+            <option value="0">Mutated (&gt;2% 突變 / &lt;98% 同源) (0 分)</option>
+            <option value="2">Unmutated (≤2% 突變 / ≥98% 同源) (+2 分)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="cllTp53">del(17p) / TP53 突變</label>
+          <select id="cllTp53">
+            <option value="0">無異常 (Wild-type) (0 分)</option>
+            <option value="4">有 del(17p) 及／或 TP53 突變 (+4 分)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-card">
+          <div class="cc-title">Rai 分期與改良風險</div>
+          <div class="cc-val" id="resRai">Rai Stage 0</div>
+          <div class="cc-sub" id="resRaiSub">Low Risk（低風險）</div>
+        </div>
+        <div class="calc-card">
+          <div class="cc-title">Binet 分期</div>
+          <div class="cc-val" id="resBinet">Binet Stage A</div>
+          <div class="cc-sub" id="resBinetSub">Hb ≥10 且 Plt ≥100k，&lt;3 區</div>
+        </div>
+        <div class="calc-card">
+          <div class="cc-title">CLL-IPI 總分與分組</div>
+          <div class="cc-val" id="resIpi">0 分 · Low</div>
+          <div class="cc-sub" id="resIpiSub">歷史 CIT 時代 5 年 OS：93%</div>
+        </div>
+        <div class="calc-card">
+          <div class="cc-title">CLL-IPI 計分細項</div>
+          <div class="cc-val" id="resIpiHint" style="font-size:14px;">觀察等待（若無症狀）</div>
+          <div class="cc-sub" id="resIpiBreakdown">無不良因子</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:6px;">註：CLL-IPI 歷史 5 年 OS（Low 93%、Intermediate 79%、High 63%、Very High 23%）建立於 CIT 時代，在現今標靶藥物時代之實際存活率已顯著提升。</p>
+
+      <h3>CLL 分期對照表 (Rai &amp; Binet)</h3>
+      <div class="grid-2">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Rai 分期</th><th>定義（周邊血單株 B 細胞 &gt;5×10⁹/L）</th><th>改良風險</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Stage 0</strong></td><td>僅淋巴球增多（及／或骨髓淋巴球 &gt;40%）</td><td>Low (低)</td></tr>
+              <tr><td><strong>Stage I</strong></td><td>Stage 0 ＋ 淋巴結腫大</td><td>Intermediate (中)</td></tr>
+              <tr><td><strong>Stage II</strong></td><td>Stage 0–I ＋ 脾腫大及／或肝腫大</td><td>Intermediate (中)</td></tr>
+              <tr><td><strong>Stage III</strong></td><td>Stage 0–II ＋ <strong>Hb &lt;11.0 g/dL</strong> 或 Hct &lt;33%</td><td>High (高)</td></tr>
+              <tr><td><strong>Stage IV</strong></td><td>Stage 0–III ＋ <strong>Platelets &lt;100,000/mm³</strong></td><td>High (高)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Binet 分期</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Stage A</strong></td><td>Hb ≥10 g/dL 且 Plt ≥100,000/mm³，且 <strong>&lt;3 個</strong>淋巴區域腫大</td></tr>
+              <tr><td><strong>Stage B</strong></td><td>Hb ≥10 g/dL 且 Plt ≥100,000/mm³，且 <strong>≥3 個</strong>淋巴區域腫大</td></tr>
+              <tr><td><strong>Stage C</strong></td><td><strong>Hb &lt;10 g/dL</strong> 及／或 <strong>Plt &lt;100,000/mm³</strong>（不計淋巴區域數）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>SLL 分期系統：Lugano 改良 Ann Arbor 分期 (CSLL-B 2/2)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分期</th><th>淋巴結侵犯範圍（扁桃腺、Waldeyer 環、脾臟視為淋巴結組織）</th><th>結外 (E) 狀態</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stage I (Limited)</strong></td><td>單一淋巴結或相鄰一組淋巴結</td><td>單一結外病灶且無淋巴結侵犯</td></tr>
+            <tr><td><strong>Stage II (Limited)</strong></td><td>橫膈膜同側 ≥2 組淋巴結</td><td>Stage I/II 淋巴結合併局限性鄰接結外侵犯</td></tr>
+            <tr><td><strong>Stage III (Advanced)</strong></td><td>橫膈膜兩側淋巴結；或橫膈膜上方淋巴結合併脾臟侵犯</td><td>不適用</td></tr>
+            <tr><td><strong>Stage IV (Advanced)</strong></td><td>額外非連續性淋巴結外器官侵犯</td><td>不適用</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px;color:var(--text-muted);">註：Lugano 分期已移除 A/B 症狀標記，且 v1.2027 已移除 Stage II bulky 欄位。</p>
+    </section>
+
+    <!-- 4. INDICATIONS -->
+    <section class="card" id="indications">
+      <div class="sec-header">
+        <h2>4. 治療適應症與啟動前評估</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-3</span></div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-step">
+          <div class="step-label">SLL 局部型 (Lugano Stage I)</div>
+          若有症狀，可給予局部累及部位放療 (<strong>ISRT</strong>)，否則<strong>觀察 (Observe)</strong>；若放療後進展，比照 Stage II–IV 評估治療適應症。
+        </div>
+        <div class="flow-step">
+          <div class="step-label">CLL (Rai 0–IV) / SLL (Stage II–IV)</div>
+          先評估是否具 <strong>iwCLL 治療適應症</strong>：無適應症者採「觀察等待 (Watch &amp; Wait)」（早期治療如 CLL12 試驗未改善 OS）。
+        </div>
+        <div class="flow-step">
+          <div class="step-label">符合適應症 → 治療前必重驗</div>
+          重新檢測 <strong>FISH del(17p)</strong>、<strong><em>TP53</em> 突變</strong>、<strong>CpG 核型</strong>、<strong><em>IGHV</em></strong>（若未測過）、適當影像、視需要骨髓檢查 → 進入第一線治療 (CSLL-4)。
+        </div>
+      </div>
+
+      <h3>iwCLL 治療適應症（符合以下任一項即考慮啟動治療）</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>臨床症狀與腫瘤負荷指標</h4>
+          <ul>
+            <li>符合臨床試驗收案條件</li>
+            <li><strong>顯著疾病相關症狀</strong>：
+              <ul>
+                <li>嚴重疲倦（影響日常工作／活動）</li>
+                <li>濕透衣物的夜間盜汗 (Drenching night sweats)</li>
+                <li>過去 6 個月內非刻意體重減輕 ≥10%</li>
+                <li>無感染證據之發燒</li>
+              </ul>
+            </li>
+            <li>威脅終端器官功能 (Threatened end-organ function)</li>
+            <li><strong>進展性、有症狀或巨塊型病灶</strong>：脾臟肋緣下 <strong>&gt;6 cm</strong>，或淋巴結 <strong>&gt;10 cm</strong></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>血液學與自體免疫指標</h4>
+          <ul>
+            <li><strong>進展性血小板低下</strong>（註：血小板 &gt;100,000/μL 通常無臨床風險）</li>
+            <li><strong>進展性貧血</strong></li>
+            <li><strong>類固醇無效之自體免疫血球低下</strong> (Steroid-refractory AIHA / ITP)</li>
+          </ul>
+          <div class="callout warn" style="margin-bottom:0;">
+            <strong>兩大臨床必記原則：</strong><br>
+            1. <strong>單純絕對淋巴球數 (ALC) 升高不是治療適應症</strong>（除非出現極罕見的白血球淤滯 leukostasis）。<br>
+            2. 輕微且穩定的血球低下（ANC &lt;1,000/μL、Hb &lt;11 g/dL 或 Plt &lt;100,000/μL）在排除自體免疫、維生素／鐵缺乏後，仍可繼續觀察。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROGNOSTIC VARIABLES & RESISTANCE -->
+    <section class="card" id="prognostic">
+      <div class="sec-header">
+        <h2>5. 分子預後因子與標靶藥物抗藥性突變</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-A 1~3</span></div>
+      </div>
+
+      <h3>Table 1：染色體與核心基因預後關聯</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>檢測方法</th><th>預後因子</th><th>臨床意義與治療影響</th></tr></thead>
+          <tbody>
+            <tr>
+              <td rowspan="5"><strong>間期 FISH</strong></td>
+              <td><strong>del(13q)</strong> 單一異常</td>
+              <td>最良性預後：在 CIT 時代擁有最長中位 OS。</td>
+            </tr>
+            <tr>
+              <td><strong>Trisomy 12 (+12)</strong></td>
+              <td>中等預後（TTFT 與 CIT 時代 OS 均屬中等）。</td>
+            </tr>
+            <tr>
+              <td><strong>無異常 (Normal)</strong></td>
+              <td>中等預後。</td>
+            </tr>
+            <tr>
+              <td><strong>del(11q)</strong></td>
+              <td>常伴廣泛淋巴結腫大，TTFT 較短，CIT 時代中位 OS 較短（標靶藥物可大幅克服）。</td>
+            </tr>
+            <tr>
+              <td><strong>del(17p)</strong></td>
+              <td>
+                • CIT 療效極差（<strong>禁忌 CIT</strong>）。<br>
+                • 使用限期 Venetoclax 或 cBTKi 雖有良好反應率，但 PFS/OS 仍較無 del(17p) 者短。<br>
+                • 預後與異常細胞比例有關（比例低者較佳）；常合併另一對偶 <em>TP53</em> 突變。
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>DNA 定序</strong></td>
+              <td><strong>IGHV 突變狀態</strong><br>Mutated: &gt;2% (&lt;98% 同源)<br>Unmutated: ≤2% (≥98% 同源)</td>
+              <td>
+                • <strong>Unmutated IGHV</strong>：TTFT 較短，接受 CIT 與<strong>限期 Venetoclax 方案</strong>之 PFS 較短。<br>
+                • 接受 <strong>cBTKi 連續治療</strong>者，ORR、PFS 與 OS <strong>不受 IGHV 狀態影響</strong>。<br>
+                • <strong>IGHV3-21</strong>：特別是 stereotyped <strong>subset 2</strong>（輕度突變 IGHV3-21 配近未突變 IGLV3-21）屬高風險；但重度突變（&lt;95% 同源）非 subset 2 者預後接近一般 IGHV-mutated。<br>
+                • <strong>IGHV4-39</strong>：有限回顧性資料提示可能與 Richter 轉化相關（待驗證）。
+              </td>
+            </tr>
+            <tr>
+              <td><strong><em>TP53</em> 突變合併 del(17p)</strong></td>
+              <td>對 CIT 與標靶藥物抗藥性增加，TTFT/TTNT/PFS/OS 顯著縮短，可能增加 Richter 轉化風險。<strong>低負荷突變 (VAF &lt;10%) 在標靶治療下行為可能接近野生型 (WT)</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong><em>TP53</em> 突變無 del(17p)</strong></td>
+              <td>仍與較短 PFS/OS 相關，但預後可能優於同時合併 <em>TP53</em> 突變與 del(17p) 者。</td>
+            </tr>
+            <tr>
+              <td><strong>CpG 刺激核型</strong></td>
+              <td><strong>複雜核型 (CK)</strong><br>≥3 個無關選殖異常</td>
+              <td>CIT、限期 Venetoclax 與 cBTKi 皆有較短 PFS/OS。<strong>高複雜核型 (High CK, ≥5 個異常)</strong> 是獨立於分期、IGHV 與 del(17p)/<em>TP53</em> 的強烈不良預後因子。</td>
+            </tr>
+            <tr>
+              <td><strong>血清檢驗</strong></td>
+              <td><strong>β2-microglobulin</strong></td>
+              <td>反映腫瘤負荷（但會受腎功能影響）；CLL-IPI 切點 &gt;3.5 mg/L。Ibrutinib 治療 6 個月內下降與較長 PFS 相關。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <h3>Table 2：其他基線與後天基因突變</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>基因</th><th>臨床關聯</th></tr></thead>
+              <tbody>
+                <tr><td><strong><em>ATM</em></strong></td><td>CIT 治療下 TTFT、PFS、TTNT 與 OS 較短。</td></tr>
+                <tr><td><strong><em>BIRC3</em></strong></td><td>CIT 下 TTNT/PFS 較短；對 BCL2i 方案可能較敏感。</td></tr>
+                <tr><td><strong><em>NOTCH1</em></strong></td><td>不論 IGHV 狀態，TTFT/PFS 較短；<strong>與較高 Richter 轉化風險相關</strong>。</td></tr>
+                <tr><td><strong><em>SF3B1</em></strong></td><td>CIT 下 TTFT 與 OS 較短。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3>Table 3：標靶治療抗藥性突變</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>抗藥突變</th><th>對應藥物與臨床意義</th></tr></thead>
+              <tbody>
+                <tr><td><strong><em>BTK</em> C481</strong></td><td>見於 <strong>cBTKi</strong> 治療惡化病人（換其他 cBTKi 無效，改用 ncBTKi 如 Pirtobrutinib 仍有效）。</td></tr>
+                <tr><td><strong><em>BTK</em> L528 / T474</strong></td><td>見於 <strong>cBTKi 與 ncBTKi</strong> 治療惡化病人（造成交叉抗藥）。</td></tr>
+                <tr><td><strong><em>CARD11</em> / <em>PLCG2</em></strong></td><td>見於 BTKi 治療惡化病人（下游活化，換其他 cBTKi 無效）。</td></tr>
+                <tr><td><strong><em>BCL2</em> G101V / D103Y</strong></td><td>見於 <strong>Venetoclax</strong> 治療惡化病人。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <strong>抗藥突變檢測原則 (CSLL-5A Footnote y)：</strong>僅建議於 BTKi 治療中<strong>疾病惡化或無反應</strong>（含懷疑服藥順從性不佳）時檢測 <em>BTK</em> 與 <em>PLCG2</em> 突變；<strong>若無臨床疾病惡化，單純檢出突變並非換藥適應症</strong>。不建議常規篩檢抗藥突變。
+      </div>
+    </section>
+
+    <!-- 6. FIRST-LINE THERAPY -->
+    <section class="card" id="firstline">
+      <div class="sec-header">
+        <h2>6. 第一線治療建議方案與關鍵試驗</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-D 1/5</span><span class="code-tag">CSLL-D 1A/5</span></div>
+      </div>
+
+      <div class="callout ok">
+        <strong>一線決策核心原則：</strong>所有線別若有合適<strong>臨床試驗皆為首選</strong>。選藥時須綜合考量：<code>del(17p)/TP53</code> 狀態、體能與共病 (Fit vs. Frail)、<code>IGHV</code> 突變狀態、用藥安全性考量，以及病人對「<strong>連續口服 (cBTKi)</strong> vs. <strong>限期療程 (固定或 MRD 導向 BCL2i)</strong>」與「全口服 vs. 靜脈注射」的偏好。
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="fl-frail">無 del(17p)/TP53：Frail 衰弱／共病</button>
+        <button class="tab-btn" data-tab="fl-fit">無 del(17p)/TP53：Fit 健壯 (IGHV 分層)</button>
+        <button class="tab-btn" data-tab="fl-tp53">合併 del(17p)/TP53 突變</button>
+        <button class="tab-btn" data-tab="fl-other">其他推薦 &amp; 特定情況</button>
+      </div>
+
+      <!-- Tab 1: Frail -->
+      <div class="tab-panel active" id="fl-frail">
+        <h4>無 del(17p)/TP53 突變 — Frail 衰弱／合併共病病人（依專家偏好順序排列）</h4>
+        <ol>
+          <li><strong>cBTKi 連續治療方案</strong>（考量心血管與出血風險）<span class="badge b-pref">首選順位 1</span>
+            <ul>
+              <li><strong>Acalabrutinib (continuous) ± Obinutuzumab</strong> <span class="badge b-cat1">Category 1</span></li>
+              <li><em>OR</em> <strong>Zanubrutinib (continuous)</strong> <span class="badge b-cat1">Category 1</span></li>
+            </ul>
+          </li>
+          <li><strong>BCL2i 限期治療方案</strong>（考量腎功能、就醫可近性與 TLS 風險）<span class="badge b-pref">首選順位 2</span>
+            <ul>
+              <li><strong>Venetoclax / Acalabrutinib (fixed duration)</strong>（AMPLIFY 方案）<span class="badge b-cat1">Category 1</span></li>
+              <li><strong>Venetoclax + Obinutuzumab (fixed duration)</strong>（CLL14 方案）<span class="badge b-cat1">Category 1</span></li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Tab 2: Fit -->
+      <div class="tab-panel" id="fl-fit">
+        <div class="grid-2">
+          <div class="box">
+            <h4>Fit 健壯 ＋ IGHV-Mutated（突變型）</h4>
+            <ol>
+              <li><strong>BCL2i 限期方案</strong> <span class="badge b-pref">首選順位 1</span>
+                <ul>
+                  <li><strong>Venetoclax / Acalabrutinib (fixed)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                  <li><strong>Venetoclax + Obinutuzumab (fixed)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                </ul>
+              </li>
+              <li><strong>cBTKi 連續方案</strong> <span class="badge b-pref">首選順位 2</span>
+                <ul>
+                  <li><strong>Acalabrutinib (continuous) ± Obinutuzumab</strong> <span class="badge b-cat1">Cat 1</span></li>
+                  <li><strong>Zanubrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="box">
+            <h4>Fit 健壯 ＋ IGHV-Unmutated（未突變型）</h4>
+            <ol>
+              <li><strong>BCL2i 限期方案</strong> <span class="badge b-pref">首選順位 1</span>
+                <ul>
+                  <li><strong>Venetoclax / Acalabrutinib ± Obinutuzumab (fixed)</strong>（AMPLIFY：未突變者加 Obinutuzumab 3 年 PFS 83% vs 69%）<span class="badge b-cat1">Cat 1</span></li>
+                  <li><strong>Venetoclax + Obinutuzumab (fixed)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                </ul>
+              </li>
+              <li><strong>cBTKi 連續方案</strong> <span class="badge b-pref">首選順位 2</span>
+                <ul>
+                  <li><strong>Acalabrutinib (continuous) ± Obinutuzumab</strong> <span class="badge b-cat1">Cat 1</span></li>
+                  <li><strong>Zanubrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: TP53 -->
+      <div class="tab-panel" id="fl-tp53">
+        <div class="callout danger">
+          <strong>絕對禁忌：</strong>合併 <code>del(17p)</code> 或 <code>TP53</code> 突變者<strong>禁用傳統化免治療 (CIT)</strong>！首選連續型 cBTKi（證據與長期控制最佳），或 MRD 導向／限期 BCL2i 組合，並強烈建議臨床試驗。
+        </div>
+        <h4>合併 del(17p)/TP53 突變 — 首選方案（依偏好排序，均為 Cat 2A）</h4>
+        <ol>
+          <li><strong>cBTKi 連續治療方案</strong> <span class="badge b-pref">首選順位 1</span>
+            <ul>
+              <li><strong>Acalabrutinib (continuous) ± Obinutuzumab</strong>（ELEVATE-TN：del17p/TP53 加 Obinutuzumab 未見額外 PFS 獲益，72m PFS 均為 56%）</li>
+              <li><em>OR</em> <strong>Zanubrutinib (continuous)</strong>（SEQUOIA Arm C：72m PFS 64%，OS 83%）</li>
+            </ul>
+          </li>
+          <li><strong>BCL2i 含藥方案</strong> <span class="badge b-pref">首選順位 2</span>
+            <ul>
+              <li><strong>Venetoclax / Acalabrutinib + Obinutuzumab (MRD-guided)</strong>（Phase II AVO：4y PFS 70%, OS 88%）</li>
+              <li><strong>Venetoclax + Obinutuzumab (fixed duration)</strong>（CLL14）</li>
+              <li><strong>Venetoclax / Zanubrutinib (MRD-guided)</strong>（SEQUOIA Arm D：24m PFS 94%, 36m PFS 88%）</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Tab 4: Other & Useful -->
+      <div class="tab-panel" id="fl-other">
+        <div class="grid-2">
+          <div class="box">
+            <h4>Other Recommended (其他推薦)</h4>
+            <ul>
+              <li><strong>無 del(17p)/TP53</strong>：
+                <ul>
+                  <li>Venetoclax / Ibrutinib (fixed duration — GLOW/CAPTIVATE) <span class="badge b-cat1">Cat 1</span></li>
+                  <li>Venetoclax / Ibrutinib (MRD-guided — FLAIR) <span class="badge b-cat1">Cat 1</span></li>
+                </ul>
+              </li>
+              <li><strong>有 del(17p)/TP53</strong>：
+                <ul>
+                  <li>Venetoclax / Ibrutinib (fixed duration — CAPTIVATE)</li>
+                </ul>
+              </li>
+            </ul>
+            <p style="font-size:12.5px;color:var(--text-muted);">註：Venetoclax/Ibrutinib 未獲美國 FDA 核准，且 GLOW 試驗顯示高齡共病者心血管與感染風險較高，故列其他推薦。</p>
+          </div>
+          <div class="box">
+            <h4>Useful in Certain Circumstances (特定情況)</h4>
+            <ul>
+              <li><strong>Venetoclax / Zanubrutinib (MRD-guided)</strong>（無 del17p/TP53，SEQUOIA Arm D）</li>
+              <li><strong>Ibrutinib (continuous)</strong>（無 del17p/TP53 <span class="badge b-cat1">Cat 1</span>；有 del17p/TP53 Cat 2A；因毒性不列首選）</li>
+              <li><strong>Ibrutinib + anti-CD20 mAb</strong>（無 del17p/TP53 <span class="badge b-cat2b">Cat 2B</span>）</li>
+              <li><strong>Pirtobrutinib (continuous)</strong> <span class="badge b-new">v1.2027</span>（<strong>僅限高齡合併心臟共病、終生可能只需一次治療者</strong>）</li>
+              <li><strong>HDMP + anti-CD20 mAb</strong>（自體免疫血球低下等；無 del17p 者 Cat 2B，&lt;65 歲無共病為 Cat 3）</li>
+              <li><strong>僅當 cBTKi 與 BCL2i 皆不可取得或不可行時</strong>：
+                <ul>
+                  <li>無 del(17p)/TP53：BR（≥65 歲起 70→90 mg/m²）、FCR（&lt;65 歲無共病，IGHV 突變可達 10 年以上緩解平台）、Chlorambucil + Obinutuzumab、Obinutuzumab 單藥</li>
+                  <li>有 del(17p)/TP53：Obinutuzumab 單藥</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <strong>各類藥物注意事項 (Agent Precautions)：</strong>
+        <strong>cBTKi</strong>：心血管風險（啟動前應做基線心血管評估）、出血風險；
+        <strong>Obinutuzumab</strong>：感染風險、輸注反應與 TLS 風險；
+        <strong>Venetoclax</strong>：腎功能不全、就醫可近性（密集抽血監測）、高腫瘤負荷與 TLS 風險。
+      </div>
+
+      <h3>一線關鍵第 3 期／第 2 期試驗療效速查 (MS-47~49)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>試驗</th><th>治療方案</th><th>族群特徵</th><th>中位追蹤</th><th>ORR (CR)</th><th>PFS</th><th>OS</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ELEVATE-TN</strong></td><td>Acalabrutinib + Obin vs. Acala vs. Chl+Obin</td><td>≥65 歲或有共病 (含 del17p)</td><td>75 月</td><td>96% (37%) vs 90% (19%)</td><td>72m: <strong>78%</strong> vs 62% vs 17%</td><td>72m: 84% vs 76%</td></tr>
+            <tr><td><strong>SEQUOIA</strong></td><td>Zanubrutinib vs. BR</td><td>≥65 歲或不適 FCR (無 del17p)</td><td>61 月</td><td>95% vs 85%</td><td>60m: <strong>76%</strong> vs 40%</td><td>60m: 86% vs 85%</td></tr>
+            <tr><td><strong>SEQUOIA Arm C</strong></td><td>Zanubrutinib 單藥</td><td><strong>合併 del(17p)</strong> (n=111)</td><td>77 月</td><td>97% (18%)</td><td>72m: <strong>64%</strong></td><td>72m: 83%</td></tr>
+            <tr><td><strong>SEQUOIA Arm D</strong></td><td>Venetoclax / Zanubrutinib (MRD 導向)</td><td>有 TP53 (n=66) / 無 TP53 (n=47)</td><td>39/30 月</td><td>99% / 96%</td><td>24m: <strong>94%</strong> / 89% (36m TP53: 88%)</td><td>24m: 96%</td></tr>
+            <tr><td><strong>CLL14</strong></td><td>Venetoclax + Obin (12m 固定) vs. Chl+Obin</td><td>≥65 歲或 CIRS&gt;6/CrCl&lt;70</td><td>76 月</td><td>85% (50%)</td><td>6y: <strong>53%</strong> vs 22% (中位 76m)</td><td>6y: 79% vs 69%</td></tr>
+            <tr><td><strong>AMPLIFY</strong></td><td>AVO vs. Ven/Acala vs. FCR/BR (固定)</td><td>中位 61 歲，無 del17p/TP53</td><td>41 月</td><td>93% vs 93% vs 75%</td><td>36m: <strong>83%</strong> vs <strong>77%</strong> vs 67%</td><td>36m: 88% / 94% / 86%</td></tr>
+            <tr><td><strong>GAIA/CLL13</strong></td><td>VenO+Ibr vs. VenO vs. VenR vs. CIT</td><td>無 del17p/TP53</td><td>51 月</td><td>94% / 96% / 93%</td><td>4y: 86% / <strong>82%</strong> / 70% / 62%</td><td>4y: 95% / 95% / 96%</td></tr>
+            <tr><td><strong>FLAIR</strong></td><td>Ven/Ibrutinib (MRD 導向) vs. Ibr vs. FCR</td><td>無 del17p，中位 62 歲</td><td>62 月</td><td>88% vs 87% vs 78%</td><td>5y: <strong>94%</strong> vs 79% vs 58%</td><td>5y: 96% vs 91% vs 87%</td></tr>
+            <tr><td><strong>Phase II AVO</strong></td><td>Ven/Acala + Obin (MRD 導向)</td><td>含 TP53 異常 (45/72)</td><td>55 月</td><td>98% (TP53: 71% CR)</td><td>4y: <strong>70%</strong> (TP53) / 96% (WT)</td><td>4y: 88% (TP53)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7. SEQUENCING & R/R -->
+    <section class="card" id="sequencing">
+      <div class="sec-header">
+        <h2>7. 治療序貫路徑與復發／難治 (R/R) 治療</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-4</span><span class="code-tag">CSLL-5</span><span class="code-tag">CSLL-5A</span><span class="code-tag">CSLL-D 2/5</span></div>
+      </div>
+
+      <div class="callout danger">
+        <strong>🚨 BTKi 疾病惡化停藥關鍵警語 (Footnote z / CSLL-C 2/5 — v1.2027 強化)：</strong><br>
+        BTKi 治療期間若發生疾病惡化，<strong>切勿突然停用 BTKi</strong>！突然停藥可能引發<strong>爆發性腫瘤反彈 (explosive disease flare)</strong>，表現為 ALC 急速上升、淋巴結迅速腫大與臨床急遽惡化；且快速腫大之淋巴結在 PET/CT 上可能呈現高 SUV，病理切片甚至呈現<strong>偽轉化 (pseudo-transformation)</strong>。應儘速銜接下一線治療；轉換至 Venetoclax 時，<strong>於 Venetoclax 劑量爬坡期 (ramp-up) 重疊繼續使用 BTKi</strong> 是安全且有助維持疾病控制的策略。
+      </div>
+
+      <h3>依第一線治療決定二線／三線序貫策略 (CSLL-4 &amp; CSLL-5)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>第一線治療模式</th><th>治療反應／情境</th><th>第二線建議</th><th>第三線／後續</th></tr></thead>
+          <tbody>
+            <tr>
+              <td rowspan="3"><strong>限期 BCL2i + anti-CD20</strong><br>(如 VenO)</td>
+              <td>BCL2i 不耐受</td>
+              <td>改用 <strong>cBTKi</strong></td>
+              <td rowspan="3">雙重暴露後進入 <strong>CSLL-5A</strong></td>
+            </tr>
+            <tr>
+              <td>完治後達緩解 → 停藥觀察至復發具適應症</td>
+              <td><strong>BCL2i 含藥方案再治療</strong>（VenO 優先 / Ven+cBTKi / Ven+ncBTKi+R / 單藥 Ven）<em>或</em> <strong>cBTKi</strong></td>
+            </tr>
+            <tr>
+              <td>治療中惡化 (Progression on tx)</td>
+              <td>改用 <strong>cBTKi</strong>（重驗 del17p/TP53/CK，排除 Richter）</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>限期 BCL2i + cBTKi ± anti-CD20</strong><br>(如 AVO / Ven-Acala)</td>
+              <td>BCL2i 不耐受</td>
+              <td>改用 <strong>cBTKi</strong></td>
+              <td rowspan="4">雙重暴露後進入 <strong>CSLL-5A</strong></td>
+            </tr>
+            <tr>
+              <td>cBTKi 不耐受</td>
+              <td><strong>BCL2i + 另一種 cBTKi</strong> <em>或</em> <strong>BCL2i ± anti-CD20</strong></td>
+            </tr>
+            <tr>
+              <td>完治後達緩解 → 觀察至復發具適應症</td>
+              <td><strong>BCL2i 含藥方案</strong> <em>或</em> <strong>cBTKi</strong></td>
+            </tr>
+            <tr>
+              <td>治療中惡化 (Progression on BCL2i+cBTKi)</td>
+              <td><strong>ncBTKi (Pirtobrutinib)</strong> 並<strong>轉介評估 CAR-T 資格</strong></td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>連續 cBTKi ± anti-CD20</strong><br>(如 Acala / Zanu)</td>
+              <td>持續有效且耐受</td>
+              <td><strong>繼續原 cBTKi</strong> 直至惡化或不耐受</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>不耐受 (Intolerance，無惡化)</td>
+              <td><strong>換另一種 cBTKi</strong> 或 <strong>ncBTKi</strong> 或 <strong>BCL2i 方案</strong><br>（無 del17p/TP53 者可停藥觀察至有症狀再啟用）</td>
+              <td>BCL2i 方案 或 另一種 cBTKi/ncBTKi</td>
+            </tr>
+            <tr>
+              <td>治療中惡化 (Progression on cBTKi)</td>
+              <td><strong>BCL2i 含藥方案</strong>（爬坡期重疊 BTKi）<em>或</em> <strong>ncBTKi (Pirtobrutinib)</strong></td>
+              <td>雙重暴露後進入 <strong>CSLL-5A</strong></td>
+            </tr>
+            <tr>
+              <td><strong>既往 CIT / HDMP+CD20</strong></td>
+              <td>緩解後復發或治療中惡化</td>
+              <td>限期 <strong>BCL2i 方案</strong> 或 連續 <strong>cBTKi 方案</strong></td>
+              <td>依上述序貫</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>二線／後續治療建議方案 (CSLL-D 2/5，不論有無 del(17p)/TP53)</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>Preferred (首選方案)</h4>
+          <ul>
+            <li><strong>BCL2i 含藥方案</strong>：
+              <ul>
+                <li><strong>Venetoclax / Pirtobrutinib + Rituximab</strong> <span class="badge b-new">v2.2027 新增</span>（BRUIN CLL-322：cBTKi 後 <span class="badge b-cat1">Cat 1</span>；BCL2i 後 Cat 2A）</li>
+                <li><strong>Venetoclax + Obinutuzumab</strong></li>
+              </ul>
+            </li>
+            <li><strong>cBTKi 連續方案</strong>（若先前對 Ibrutinib 不耐受可改用，但對 <em>BTK</em> C481S 抗藥無效）：
+              <ul>
+                <li><strong>Acalabrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span></li>
+                <li><strong>Zanubrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span></li>
+              </ul>
+            </li>
+            <li><strong>ncBTKi 連續方案</strong>：
+              <ul>
+                <li><strong>Pirtobrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span>（先前 cBTKi 抗藥或不耐受）</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Other Recommended (其他推薦)</h4>
+          <ul>
+            <li><strong>BCL2i 含藥方案</strong>：
+              <ul>
+                <li><strong>Venetoclax + Rituximab</strong>（MURANO）<span class="badge b-cat1">Cat 1</span></li>
+                <li><strong>Venetoclax 單藥</strong>（連續，適用先前 BCL2i 緩解後復發或單藥情境）</li>
+                <li><strong>Venetoclax / cBTKi (Acalabrutinib, Ibrutinib, Zanubrutinib)</strong> 限期療程（固定或 MRD 導向；<strong>不適用於 cBTKi 惡化者</strong>）</li>
+              </ul>
+            </li>
+            <li><strong>cBTKi 連續方案</strong>：
+              <ul>
+                <li><strong>Ibrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span>（因毒性列其他推薦）</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>雙重暴露後 (Prior BTKi + BCL2i) 復發／難治治療 (CSLL-5A &amp; CSLL-D 2/5)</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>Preferred (首選方案) + 臨床試驗</h4>
+          <ul>
+            <li><strong>臨床試驗</strong>（首選）</li>
+            <li><strong>CAR T 細胞治療</strong>：<strong>Lisocabtagene maraleucel (liso-cel, CD19)</strong> ± Ibrutinib（單次輸注；TRANSCEND CLL 004：單用 ORR 43%/CR 18%，合併 Ibrutinib ORR 86%/CR 45%、中位 PFS 31 月）</li>
+            <li><strong>ncBTKi</strong>：<strong>Pirtobrutinib (continuous)</strong> <span class="badge b-cat1">Cat 1</span>（若先前未使用）並<strong>轉介評估 CAR-T 資格</strong></li>
+            <li><strong>異體造血幹細胞移植 (Allogeneic HCT)</strong>：無顯著共病者（可評估 HCT-CI）可考慮作為具治癒潛力之鞏固。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Other Recommended（同時轉介 CAR-T 評估）</h4>
+          <ul>
+            <li><strong>PI3Ki 方案</strong>：Duvelisib、Idelalisib ± Rituximab（注意肝毒性、腹瀉/結腸炎、肺炎、CMV/PJP/HSV）</li>
+            <li><strong>Lenalidomide ± Rituximab</strong>（CLL 須從低劑量 5–15 mg/d 緩升，注意 Tumor Flare 與 VTE）</li>
+            <li><strong>Obinutuzumab</strong> 單藥</li>
+            <li><strong>HDMP + anti-CD20 mAb</strong>（有 del17p Cat 2A；無 del17p Cat 2B）</li>
+            <li><strong>Alemtuzumab ± Rituximab</strong>（限 <code>del(17p)/TP53</code>，大淋巴結 &gt;5 cm 效果較差，必測 CMV）</li>
+            <li><strong>FCR / BR</strong>（<strong>不建議用於 del(17p)/TP53 突變</strong>；BR 於 ≥65 歲或有共病為 Cat 2B）</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>R/R 關鍵臨床試驗速查 (MS-50 &amp; MS-28~29)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>試驗</th><th>方案比較</th><th>中位追蹤</th><th>ORR (CR)</th><th>PFS</th><th>OS / 備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ALPINE</strong></td><td>Zanubrutinib vs. Ibrutinib</td><td>42.5 月 (6y LTE)</td><td>86% vs 75%</td><td>36m: <strong>65% vs 54%</strong> (HR 0.67)；del17p 59% vs 39%</td><td>6y 中位 PFS 53 月；心房顫動 7% vs 17%</td></tr>
+            <tr><td><strong>ELEVATE-RR</strong></td><td>Acalabrutinib vs. Ibrutinib (del17p/11q)</td><td>41 月</td><td>81% vs 77%</td><td>中位 38 月 vs 38 月（非劣效）</td><td>心房顫動 9% vs 16%、高血壓 9% vs 23%</td></tr>
+            <tr><td><strong>ASCEND</strong></td><td>Acalabrutinib vs. IdR/BR</td><td>47 月</td><td>83% vs 84%</td><td>42m: <strong>62% vs 23%</strong> (HR 0.28)</td><td>42m OS: 78% vs 65%</td></tr>
+            <tr><td><strong>MURANO</strong></td><td>Venetoclax + Rituximab (24m) vs. BR</td><td>59 月</td><td>92% vs 72%</td><td>中位 <strong>54 月 vs 17 月</strong> (HR 0.19)</td><td>5y OS: <strong>82% vs 62%</strong></td></tr>
+            <tr><td><strong>BRUIN CLL-321</strong></td><td>Pirtobrutinib vs. IdR/BR (cBTKi 後)</td><td>17 月</td><td>—</td><td>IRC 中位 <strong>14 月 vs 9 月</strong></td><td>BCL2i 後 HR 0.54；CK HR 0.37</td></tr>
+            <tr><td><strong>BRUIN CLL-322</strong></td><td><strong>Ven/Pirtobrutinib + R</strong> vs. VenR</td><td>Lancet 2026</td><td>—</td><td>顯著延長 PFS</td><td>v2.2027 新增為 R/R 首選 (cBTKi 後 Cat 1)</td></tr>
+            <tr><td><strong>TRANSCEND CLL 004</strong></td><td>Liso-cel 單用 / Liso-cel + Ibrutinib</td><td>20–24 月</td><td>43% (18%) / 86% (45%)</td><td>中位 12 月 (CR 未達) / 31 月</td><td>Gr≥3 CRS 8%→4%、ICANS 19%→11%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. RESPONSE & MRD -->
+    <section class="card" id="mrd">
+      <div class="sec-header">
+        <h2>8. iwCLL 療效標準與 MRD 評估原則</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-E 1/2</span><span class="code-tag">CSLL-E 2/2</span><span class="code-tag">MS-10~15</span></div>
+      </div>
+
+      <h3>iwCLL 臨床療效評估標準</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>療效分級</th><th>核心定義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CR (完全緩解)</strong></td><td>完治至少 2 個月後同時符合：周邊血淋巴球正常、無淋巴結腫大 (≤1.5 cm)、無肝脾腫大、無 B 症狀、無需生長因子即血球正常化。若僅血球未完全恢復稱 <strong>CRi</strong>。</td></tr>
+            <tr><td><strong>PR (部分緩解)</strong></td><td>持續 ≥2 個月：淋巴球、淋巴結、肝或脾（基線異常者）至少兩項縮小 ≥50%，且至少一項血球正常化或上升 ≥50%。</td></tr>
+            <tr><td><strong>PR-L (伴淋巴球增多之 PR)</strong></td><td><strong>BTKi 與 PI3Ki 專屬分類</strong>：治療初期淋巴球自組織釋放至周邊血導致暫時性 ALC 升高，只要淋巴結／脾臟縮小且無其他惡化指標，<strong>不可誤判為疾病惡化 (PD)</strong>。</td></tr>
+            <tr><td><strong>PD (疾病惡化)</strong></td><td>淋巴球、淋巴結、肝或脾較基線增加 ≥50%；出現新病灶；或疾病導致血球低下（血小板下降 ≥50% 或 Hb 下降 &gt;2 g/dL）。</td></tr>
+            <tr><td><strong>Relapse vs. Refractory</strong></td><td><strong>復發 (Relapse)</strong>：CR/PR 後 ≥6 個月惡化；<strong>難治 (Refractory)</strong>：治療無反應或於最後一次治療 6 個月內惡化。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>MRD (微量殘留疾病) 檢測與 MRD 導向治療</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>MRD 檢測方法與注意事項</h4>
+          <ul>
+            <li><strong>uMRD (undetectable MRD)</strong>：限期 BCL2i 治療結束後周邊血達 uMRD 是長期 PFS 的重要預測指標；連續 BTKi 單藥通常不達 uMRD 且無需以此決策。</li>
+            <li><strong>標準化檢測靈敏度至少須達 10⁻⁴ (uMRD4)</strong>：
+              <ul>
+                <li><strong>6 色流式細胞儀 (ERIC 標準)</strong>：靈敏度 10⁻⁴–10⁻⁵，最普及，不需治療前檢體。</li>
+                <li><strong>ASO-PCR</strong>：10⁻⁴–10⁻⁵，較費工且需治療前檢體。</li>
+                <li><strong>NGS 檢測</strong>：靈敏度可達 <strong>10⁻⁶ (uMRD6)</strong>，需治療前檢體建立選殖序列。</li>
+              </ul>
+            </li>
+            <li><strong>監測頻率</strong>：MRD 導向治療期間每 <strong>3–6 個月</strong>監測周邊血或骨髓 MRD。</li>
+            <li><strong>抗 CD20 干擾提醒</strong>：<strong>3 個月內</strong>曾使用抗 CD20 單抗會優先清除周邊血 B 細胞，可能導致周邊血 MRD <strong>低估</strong>（相較於骨髓等其他腔室）。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Table 1：NCCN 認可之 MRD 導向一線治療方案</h4>
+          <div class="table-wrap" style="margin:0;">
+            <table>
+              <thead><tr><th>試驗</th><th>MRD 方法</th><th>適用族群與方案</th><th>停藥條件</th></tr></thead>
+              <tbody>
+                <tr><td><strong>FLAIR</strong></td><td>Flow</td><td>無 del(17p)/TP53：<br>Venetoclax/Ibrutinib (Cat 1; 其他推薦)</td><td>依連續 uMRD 達標時間決定療程（2–6 年）</td></tr>
+                <tr><td><strong>SEQUOIA (Arm D)</strong></td><td>Flow</td><td>有 del(17p)/TP53 (Preferred)；<br>無 del(17p)/TP53 (特定情況)：<br>Venetoclax/Zanubrutinib (Cat 2A)</td><td>符合 uMRD 停藥標準者：Ven ≥12 週期、Zanu ≥27 週期後可停藥</td></tr>
+                <tr><td><strong>Phase II (AVO)</strong></td><td>NGS / Flow</td><td>有 del(17p)/TP53 (Preferred)：<br>Ven/Acala + Obin (Cat 2A)</td><td>第 16 週期開始時骨髓達 CR + uMRD 可停藥</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. RICHTER TRANSFORMATION -->
+    <section class="card" id="richter">
+      <div class="sec-header">
+        <h2>9. 組織學轉化 (Richter Transformation)</h2>
+        <div class="sec-tags"><span class="code-tag">HT-1~HT-4</span><span class="code-tag">HT-A 1~3</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>診斷與鑑別要點 (HT-1 &amp; HT-2)</h4>
+          <ul>
+            <li>發生率約 2%–10%，高風險因子：IGHV-unmutated、IGHV4-39 (subset 8)、<code>del(17p)/TP53</code>、CK、<code>NOTCH1</code>、<em>C-MYC</em> 活化。</li>
+            <li><strong>FDG-PET/CT 導引切片</strong>：首選全身 PET/CT，針對 <strong>SUV ≥5</strong> 或攝取顯著高於其他病灶之淋巴結進行<strong>切除／切開切片</strong>（FNA 單獨不足）。</li>
+            <li><strong>轉化為 DLBCL</strong>：非增殖中心之融合大片大型 B 細胞即可確診（單純 Ki-67 升高或增殖中心表現 c-MYC/cyclin D1 不可診斷轉化）。</li>
+            <li><strong>非 Richter 轉化之惡化</strong>：<strong>Accelerated CLL</strong>（增殖中心擴大融合 &gt;20x 視野且 Ki-67 &gt;40% 或 &gt;2.4 mitoses）及<strong>前淋巴球增多 (&gt;15%)</strong> 屬 CLL 惡化而非 Richter。</li>
+            <li><strong>轉化為 CHL</strong>：大型 RS 細胞表現 <code>CD30+, CD15+, PAX-5+</code>，缺乏強均勻 CD20/CD45 及 OCT-2/BOB.1 共表現，背景為 CD3+ T 細胞。<strong>散在腫瘤性 HRS 細胞</strong>預後類似典型 CHL 轉化，須以 <strong>LMP1 / EBER-ISH</strong> 與良性 EBV 再活化區分。</li>
+            <li><strong>選殖相關性 (Clonal relatedness)</strong>：比較 CLL 與轉化組織之 IGHV 基因重排（約 78% 相關、中位 OS 14 月；22% 無關、中位 OS 62 月），但<strong>切勿因等待結果而延誤治療</strong>！</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>治療決策路徑 (HT-2 ~ HT-4)</h4>
+          <ul>
+            <li><strong>轉化為 CHL</strong>：依 <strong>NCCN Hodgkin Lymphoma 指引</strong>（如 ABVD）或臨床試驗。</li>
+            <li><strong>DLBCL 轉化 — 未治療過 CLL 或選殖無關 (Clonally unrelated)</strong>：
+              <ul>
+                <li>一線：臨床試驗 或 <strong>CIT 方案</strong>（既往治療過 CLL 可安全併用連續 cBTKi 控病，但不加其他標靶）。</li>
+                <li>CR → 觀察；PR／難治／惡化 → 臨床試驗、<strong>CAR-T</strong>（≥1 線後）或<strong>非 CIT 方案</strong> → 若達 CR 考慮 <strong>Allo-HCT</strong>。</li>
+              </ul>
+            </li>
+            <li><strong>DLBCL 轉化 — 曾治療過 CLL 且選殖相關或未知</strong>：
+              <ul>
+                <li>一線：<strong>臨床試驗（首選）</strong>、<strong>非 CIT 方案（CAR-T 以外）</strong>，或 CIT。</li>
+                <li>達 CR：觀察、考慮 <strong>Allo-HCT 及／或轉介評估 CAR-T</strong>，或續用非 CIT 至惡化。</li>
+                <li>PR／難治／惡化：臨床試驗、<strong>CAR-T</strong>（≥1 線後）、或未用過之非 CIT 方案（達 CR 考慮 Allo-HCT）。</li>
+              </ul>
+            </li>
+            <li><strong>療效評估</strong>：必須使用 <strong>PET/CT（Lugano 5-Point Scale）</strong>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Richter 轉化 (DLBCL) 建議治療方案 (HT-A 1/3)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>建議方案（無註明皆為 Cat 2A）</th><th>臨床重點與註腳</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Chemoimmunotherapy (CIT)</strong></td>
+              <td>
+                • <strong>R-CHOP ± Venetoclax</strong> (加 Ven 為 <span class="badge b-cat2b">Cat 2B</span>)<br>
+                • <strong>DA-EPOCH-R</strong><br>
+                • <strong>R-HyperCVAD</strong> 交替 High-Dose Cytarabine / High-Dose MTX<br>
+                • <strong>OFA (Oxaliplatin/Fludarabine/Cytarabine) + Rituximab</strong>
+              </td>
+              <td>衰弱或 LVEF 不佳者參照 NCCN B-Cell Lymphomas (BCEL-C)。可安全併用連續 cBTKi 控病。</td>
+            </tr>
+            <tr>
+              <td><strong>ICI 免疫檢查點抑制劑組合</strong></td>
+              <td>
+                • <strong>Atezolizumab + Obinutuzumab + Venetoclax</strong> (MOLTO: ORR 68%)<br>
+                • <strong>Nivolumab ± Ibrutinib</strong> (ORR 42%)<br>
+                • <strong>Pembrolizumab ± Ibrutinib</strong> (併用 ORR 63%)<br>
+                • <strong>Tislelizumab-jsgr + Zanubrutinib</strong> (RT1: ORR 58%, 24m OS 63%)
+              </td>
+              <td>若對先前 cBTKi 不耐受或惡化，<strong>不可</strong>再配同款 cBTKi。Atezolizumab、Nivolumab、Pembrolizumab 均有皮下劑型可替換（劑量不同）。</td>
+            </tr>
+            <tr>
+              <td><strong>BTKi 方案</strong></td>
+              <td>
+                • <strong>Pirtobrutinib</strong> (BRUIN: ORR 50%，可作移植橋接)<br>
+                • <strong>Pirtobrutinib / Venetoclax + Obinutuzumab</strong> <span class="badge b-new">v1.2027 新增</span><br>
+                • Acalabrutinib <span class="badge b-cat2b">Cat 2B</span>
+              </td>
+              <td>cBTKi 暴露後選用 ncBTKi (Pirtobrutinib)。</td>
+            </tr>
+            <tr>
+              <td><strong>雙特異性抗體 (CD3×CD20)</strong></td>
+              <td>
+                • <strong>Epcoritamab-bysp</strong> (EPCORE CLL-1: ORR 48%, CR 40%)<br>
+                • <strong>Glofitamab-gxbm</strong> (ORR 64%, CR 46%)
+              </td>
+              <td>適用 cBTKi 及／或 BCL2i 治療後轉化者。</td>
+            </tr>
+            <tr>
+              <td><strong>CAR T 細胞治療 (CD19)</strong></td>
+              <td>
+                • <strong>Axicabtagene ciloleucel (axi-cel)</strong><br>
+                • <strong>Lisocabtagene maraleucel (liso-cel)</strong><br>
+                • <strong>Tisagenlecleucel (tisa-cel)</strong>
+              </td>
+              <td>適用於<strong>至少接受過 1 線全身治療</strong>之合格病人（CIBMTR 實證 liso-cel ORR 76%）。注意 CRS/ICANS 管理。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10. SUPPORTIVE CARE -->
+    <section class="card" id="supportive">
+      <div class="sec-header">
+        <h2>10. 支持性照護、TLS、病毒再活化、出血與疫苗</h2>
+        <div class="sec-tags"><span class="code-tag">CSLL-C 1~5</span><span class="code-tag">MS-51~52</span></div>
+      </div>
+
+      <h3>🧪 互動式 Venetoclax TLS 風險分層與處置速查</h3>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="tlsNode">CT 測量最大淋巴結直徑</label>
+          <select id="tlsNode">
+            <option value="lt5">&lt; 5 cm</option>
+            <option value="5to10">5 cm 至 &lt; 10 cm</option>
+            <option value="ge10">≥ 10 cm</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="tlsAlc">絕對淋巴球數 (ALC)</label>
+          <select id="tlsAlc">
+            <option value="lt25">&lt; 25 × 10⁹/L (&lt; 25,000/μL)</option>
+            <option value="ge25">≥ 25 × 10⁹/L (≥ 25,000/μL)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="tlsCrcl">腎功能 (CrCl)</label>
+          <select id="tlsCrcl">
+            <option value="ge80">≥ 80 mL/min</option>
+            <option value="lt80">&lt; 80 mL/min（增加住院監測考量）</option>
+          </select>
+        </div>
+      </div>
+      <div id="tlsOut" class="callout ok"></div>
+
+      <div class="callout warn">
+        <strong>Venetoclax 啟動前必防「假性高血鉀 (Pseudohyperkalemia)」(CSLL-C 2/5)：</strong><br>
+        高 ALC 病人常出現檢體離心溶血／白血球破裂所致之假性高血鉀；<strong>在取得可靠血鉀數值前不可啟動 Venetoclax</strong>。避免方法：不用止血帶重新抽血、檢體冰浴立即送檢、使用血氣管測全血鉀 (whole blood / blood gas K⁺)。<br>
+        <strong>減瘤與爬坡：</strong>標準 5 週爬坡（20→50→100→200→400 mg QD）；可先給 Obinutuzumab 或 cBTKi 減瘤；<strong>Rasburicase</strong>（成人固定劑量 3–6 mg 常單劑有效）適用於急需治療之巨塊病灶、無法充分水化或急性腎衰竭者，使用前建議驗 <strong>G6PD</strong>（已知缺乏者禁忌，改用 Allopurinol）。
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="sc-infect">感染預防與病毒再活化</button>
+        <button class="tab-btn" data-tab="sc-bleed">BTKi 出血與副作用比較</button>
+        <button class="tab-btn" data-tab="sc-auto">自體免疫、輸血、mAb 與 IVIG</button>
+        <button class="tab-btn" data-tab="sc-vax">疫苗、篩檢與 Lenalidomide</button>
+      </div>
+
+      <!-- Tab: Infection & Viral -->
+      <div class="tab-panel active" id="sc-infect">
+        <div class="grid-2">
+          <div class="box">
+            <h4>抗感染預防 (CSLL-C 1/5)</h4>
+            <ul>
+              <li><strong>PI3Ki、Purine analog/Bendamustine CIT、Alemtuzumab</strong>：治療期間與結束後皆建議 <strong>HSV 預防</strong> (Acyclovir) ＋ <strong>PJP 預防</strong> (TMP-SMX)。</li>
+              <li><strong>BTKi</strong>：伺機性感染高風險者考慮 PJP 與 VZV 預防，並<strong>監測黴菌感染</strong>。</li>
+              <li><strong>Venetoclax 嗜中性白血球低下</strong>：監測血球，考慮 <strong>G-CSF</strong> 及抗菌／抗黴菌預防。</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>病毒再活化監測與處置</h4>
+            <ul>
+              <li><strong>HBV</strong>：所有治療前必驗 <strong>HBsAg &amp; HBcAb</strong>（陽性再加驗 RT-qPCR 與 HBsAb；注意 <strong>IVIG 可致 HBcAb 假陽性</strong>）。HBsAg+ 或非 IVIG 所致 HBcAb+ 建議預防性抗病毒：<strong>Entecavir 首選</strong>（避免 Lamivudine 防抗藥；替代：Tenofovir/Adefovir/Telbivudine）；治療期間每月、之後每 3 個月測 HBV DNA，<strong>持續至療程結束後最長 12 個月</strong>。</li>
+              <li><strong>HCV</strong>：Genotype 1 無症狀低度 B 細胞 NHL 可考慮 DAA。</li>
+              <li><strong>CMV</strong>：PI3Ki 或 Alemtuzumab 屬高風險，至少每 <strong>4 週</strong>測 CMV PCR，陽性或上升時考慮 Ganciclovir。</li>
+              <li><strong>JCV</strong>：留意進行性多灶性白質腦病變 (PML)。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: BTKi Bleeding & TEAEs -->
+      <div class="tab-panel" id="sc-bleed">
+        <div class="callout danger">
+          <strong>BTKi 圍手術期停藥與抗凝原則 (CSLL-C 5/5 &amp; MS-34)：</strong><br>
+          • <strong>小手術</strong>：術前停 <strong>3 天</strong>、術後停 <strong>3 天</strong>；<strong>大手術</strong>：術前停 <strong>7 天</strong>、術後停 <strong>7 天</strong>。<br>
+          • <strong>骨髓穿刺與切片：通常不需停藥</strong>（依病人個別狀況臨床判斷）<span class="badge b-new">v1.2027</span>。<br>
+          • <strong>不建議併用 ≥3 種抗血小板／抗凝藥物</strong>（如 BTKi + Aspirin + DOAC）。<br>
+          • <strong>Warfarin 併用</strong>：Ibrutinib 與 Acalabrutinib <strong>應避免併用 Warfarin</strong>；<strong>Zanubrutinib 可與抗凝劑（含 Warfarin）併用</strong>。Acalabrutinib 錠劑與 Zanubrutinib 可與制酸劑／PPI 併用。
+        </div>
+        <h4>Table 4：四大 BTKi 常見副作用與關注不良事件 (AESI) 比較 (MS-51)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>不良事件 (All Grade / Gr≥3)</th><th>Acalabrutinib<br>(ELEVATE-TN / RR)</th><th>Zanubrutinib<br>(SEQUOIA / ALPINE)</th><th>Ibrutinib<br>(RESONATE-2 / ALPINE)</th><th>Pirtobrutinib<br>(BRUIN / CLL-321)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>心房顫動／撲動</strong></td><td>9% / 2%–5%</td><td><strong>3%–7%</strong> / &lt;1%–3%</td><td>16%–17% / 3%–5%</td><td><strong>3%</strong> / &lt;1%</td></tr>
+              <tr><td><strong>高血壓</strong></td><td>9%–11% / 4%–5%</td><td>14%–27% / 6%–17%</td><td>23%–25% / 8%–16%</td><td><strong>6%</strong> / &lt;1%</td></tr>
+              <tr><td><strong>重大出血 (Major)</strong></td><td>6% / 5%</td><td>5% / 4%</td><td>11% / 7%</td><td>Gr≥3: 1%</td></tr>
+              <tr><td><strong>頭痛</strong></td><td><strong>35%–39%</strong> (多為輕度，咖啡因/止痛可緩解)</td><td>11%</td><td>20%</td><td>17%</td></tr>
+              <tr><td><strong>腹瀉</strong></td><td>35%–43%</td><td>14%–19%</td><td>26%–50%</td><td>16%</td></tr>
+              <tr><td><strong>嗜中性白血球低下</strong></td><td>13%–21%</td><td>16%–32% (感染率未增)</td><td>13%–30%</td><td>16%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab: Autoimmune, Blood, mAb, IVIG -->
+      <div class="tab-panel" id="sc-auto">
+        <div class="grid-2">
+          <div class="box">
+            <h4>自體免疫血球低下 (CSLL-C 4/5)</h4>
+            <ul>
+              <li><strong>AIHA</strong>：以 Reticulocyte、Haptoglobin、DAT (Coombs) 診斷。<strong>Fludarabine 誘發之 AIHA 須立即停藥、治療並終生避免再次使用 Fludarabine</strong>。</li>
+              <li><strong>ITP</strong>：應評估骨髓以確認血小板低下原因。</li>
+              <li><strong>PRCA</strong>：考慮骨髓檢查並驗 <strong>Parvovirus B19</strong>、疱疹病毒與藥物因素（B19 陽性對 IVIG 反應佳）。</li>
+              <li><strong>治療選項</strong>：類固醇、Rituximab、IVIG、Cyclosporin A、脾切除、<strong>TPO-RAs</strong> (Eltrombopag/Romiplostim，用於 ITP)，或 <strong>BTKi 方案（用於類固醇無效或復發 AIHA）</strong> <span class="badge b-new">v1.2027</span>。</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>血品、mAb 併發症與 IVIG</h4>
+            <ul>
+              <li><strong>血品支持</strong>：<strong>所有血品皆須經輻射照射 (Irradiated)</strong> 以預防輸血相關移植物抗宿主病 (TA-GVHD)。</li>
+              <li><strong>Obinutuzumab 輸注反應</strong>：首次輸注及高 ALC (&gt;100,000/μL) 風險高，可用類固醇前處理 1–3 天（或 HDMP 1000 mg QD ×3 減瘤＋防反應），並依仿單暫停降壓藥。</li>
+              <li><strong>嚴重皮膚黏膜反應</strong> (PNP, SJS, TEN)：會診皮膚科，<strong>不建議再挑戰同款 mAb</strong>。</li>
+              <li><strong>Rituximab 給藥</strong>：前一療程無嚴重反應可改 90 分鐘快速輸注；完成至少 1 次完整靜脈劑量後可改皮下劑型。</li>
+              <li><strong>反覆鼻竇肺部感染</strong>：驗血清 IgG，若 <strong>&lt;500 mg/dL</strong>，啟動每月 <strong>IVIG 0.3–0.5 g/kg</strong> 或每週等效 <strong>SCIG</strong>，調整劑量維持谷值 ~500 mg/dL。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Vaccines, Screening, Lenalidomide -->
+      <div class="tab-panel" id="sc-vax">
+        <div class="grid-2">
+          <div class="box">
+            <h4>疫苗接種原則 (CSLL-C 5/5)</h4>
+            <ul>
+              <li><strong>🚫 禁止所有活性減毒疫苗</strong>（含活性減毒流感疫苗）。</li>
+              <li><strong>建議接種（不活化／重組疫苗）</strong>：
+                <ul>
+                  <li>年度流感疫苗（Rituximab 後約 9 個月 B 細胞才恢復，恢復前接種通常無效）</li>
+                  <li>肺炎鏈球菌疫苗（依 CDC 指引；結合型較多醣體佳）</li>
+                  <li><strong>重組佐劑帶狀疱疹疫苗 (Zoster recombinant, adjuvanted)</strong></li>
+                  <li><strong>RSV 疫苗（單劑）</strong>：所有 CLL/SLL 病人，<strong>包含 &lt;60 歲</strong> <span class="badge b-new">v1.2027</span></li>
+                  <li><strong>COVID-19 疫苗</strong>：所有 CLL/SLL 病人</li>
+                  <li><strong>CAR-T 治療後</strong>：依主治醫師或院內指引重新接種疫苗 <span class="badge b-new">v1.2027</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>二次癌症篩檢 &amp; Lenalidomide 照護</h4>
+            <ul>
+              <li><strong>二次癌症篩檢</strong>：CLL/SLL 發生黑色素瘤與非黑色素瘤皮膚癌風險高，建議<strong>每年皮膚科篩檢</strong>，並確實執行適齡乳癌、子宮頸癌、大腸癌與攝護腺癌篩檢。</li>
+              <li><strong>Lenalidomide 血栓預防</strong>：血小板 &gt;50×10⁹/L 給予 <strong>Aspirin 81 mg PO QD</strong>（已用抗凝劑者不需再加）。</li>
+              <li><strong>Lenalidomide Tumor Flare</strong>：痛性淋巴結腫大伴局部發炎／發燒／皮疹；治療用 Prednisone 25–50 mg QD × 5–10 天＋抗組織胺；巨塊淋巴結 (&gt;5 cm) 可預防性給 Prednisone 20 mg QD × 5–7 天後 5–7 天減停。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. APPENDIX -->
+    <section class="card" id="appendix">
+      <div class="sec-header">
+        <h2>11. NCCN 證據與偏好等級 ＆ 常用縮寫表</h2>
+        <div class="sec-tags"><span class="code-tag">CAT-1</span><span class="code-tag">ABBR-1</span></div>
+      </div>
+      <div class="grid-2">
+        <div class="box">
+          <h4>NCCN 證據與共識等級 (除標註外皆為 Category 2A)</h4>
+          <ul>
+            <li><strong>Category 1</strong>：高階證據（≥1 個隨機第 3 期試驗或嚴謹統合分析）且一致共識 (≥85%)。</li>
+            <li><strong>Category 2A</strong>：較低階證據但一致共識 (≥85%)。</li>
+            <li><strong>Category 2B</strong>：較低階證據且具共識 (50%–84%)。</li>
+            <li><strong>Category 3</strong>：任何證據等級但專家有重大分歧。</li>
+          </ul>
+          <h4>NCCN 偏好分類</h4>
+          <ul>
+            <li><strong>Preferred (首選)</strong>：療效、安全性、證據及可負擔性最佳。</li>
+            <li><strong>Other Recommended (其他推薦)</strong>：療效略低、毒性較高、證據較不成熟或費用較高。</li>
+            <li><strong>Useful in Certain Circumstances (特定情況)</strong>：適用於特定篩選族群。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>常用縮寫快速對照</h4>
+          <p style="font-size:13px;line-height:1.8;">
+            <strong>AIHA</strong> 自體免疫溶血性貧血 · <strong>ALC</strong> 絕對淋巴球數 · <strong>ANC</strong> 絕對嗜中性球數 · <strong>ASO-PCR</strong> 對偶基因特異性寡核苷酸 PCR · <strong>BCL2i</strong> BCL2 抑制劑 · <strong>BTKi / cBTKi / ncBTKi</strong> 共價／非共價（可逆）BTK 抑制劑 · <strong>CAR-T</strong> 嵌合抗原受體 T 細胞 · <strong>CHL</strong> 典型何杰金氏淋巴瘤 · <strong>CIT</strong> 化免治療 · <strong>CK</strong> 複雜核型 · <strong>CRS</strong> 細胞激素釋放症候群 · <strong>DAA</strong> 直接抗病毒藥物 · <strong>DLBCL</strong> 瀰漫大 B 細胞淋巴瘤 · <strong>ERIC</strong> 歐洲 CLL 研究倡議 · <strong>FISH</strong> 螢光原位雜交 · <strong>HCT</strong> 造血幹細胞移植 · <strong>HDMP</strong> 高劑量甲基培尼皮質醇 · <strong>HRS</strong> Hodgkin/Reed-Sternberg 細胞 · <strong>IGHV</strong> 免疫球蛋白重鏈可變區 · <strong>ISRT</strong> 累及部位放療 · <strong>ITP</strong> 免疫性血小板低下 · <strong>IVIG / SCIG</strong> 靜脈／皮下免疫球蛋白 · <strong>MBL</strong> 單株 B 細胞淋巴球增多症 · <strong>MCL</strong> 被套細胞淋巴瘤 · <strong>MRD / uMRD</strong> 微量殘留疾病／測不到 MRD · <strong>NGS</strong> 次世代定序 · <strong>PJP</strong> 肺囊蟲肺炎 · <strong>PML</strong> 進行性多灶性白質腦病變 · <strong>PRCA</strong> 純紅血球再生不良 · <strong>PR-L</strong> 伴淋巴球增多之部分緩解 · <strong>TLS</strong> 腫瘤溶解症候群 · <strong>TPO-RA</strong> 血小板生成素受體促效劑 · <strong>TTFT / TTNT</strong> 至首次／下次治療時間 · <strong>VAF</strong> 變異對偶基因頻率
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      整理依據：NCCN Clinical Practice Guidelines in Oncology — Chronic Lymphocytic Leukemia/Small Lymphocytic Lymphoma, Version 2.2027 (September 28, 2026)。<br>
+      本網頁僅供醫療專業人員臨床學習與快速查閱參考，實際診療請依最新官方指引與病人個別狀況由醫師獨立判斷。
+    </div>
+  </main>
+
+  <button id="topBtn" title="回到頂端">↑ 頂端</button>
+
+  <script>
+    // Dark / Light Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('cll-theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeBtn.textContent = '☀️ 淺色';
+    }
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '🌙 深色' : '☀️ 淺色';
+      localStorage.setItem('cll-theme', isDark ? 'light' : 'dark');
+    });
+
+    // Mobile Sidebar Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    menuBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+    sidebar.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', () => sidebar.classList.remove('open'));
+    });
+
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.closest('section');
+        parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = parent.querySelector('#' + btn.dataset.tab);
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    // Interactive CLL Staging & CLL-IPI Calculator
+    function updateCllCalc() {
+      const age = parseInt(document.getElementById('cllAge').value, 10);
+      const hb = document.getElementById('cllHb').value;
+      const plt = document.getElementById('cllPlt').value;
+      const areas = parseInt(document.getElementById('cllAreas').value, 10);
+      const b2m = parseInt(document.getElementById('cllB2m').value, 10);
+      const ighv = parseInt(document.getElementById('cllIghv').value, 10);
+      const tp53 = parseInt(document.getElementById('cllTp53').value, 10);
+
+      // Rai
+      let raiStage = 0;
+      if (plt === 'low') raiStage = 4;
+      else if (hb === 'mid' || hb === 'low') raiStage = 3;
+      else if (areas === 2 || areas === 4) raiStage = 2;
+      else if (areas === 1 || areas === 3) raiStage = 1;
+
+      const raiLabels = ['Stage 0', 'Stage I', 'Stage II', 'Stage III', 'Stage IV'];
+      const raiRisk = raiStage === 0 ? 'Low Risk（低風險）' :
+                      raiStage <= 2 ? 'Intermediate Risk（中風險）' : 'High Risk（高風險）';
+      document.getElementById('resRai').textContent = 'Rai ' + raiLabels[raiStage];
+      document.getElementById('resRaiSub').textContent = raiRisk;
+
+      // Binet
+      let binet = 'A';
+      if (hb === 'low' || plt === 'low') binet = 'C';
+      else if (areas >= 3) binet = 'B';
+      document.getElementById('resBinet').textContent = 'Binet Stage ' + binet;
+      document.getElementById('resBinetSub').textContent =
+        binet === 'C' ? 'Hb <10 g/dL 及／或 Plt <100,000/mm³' :
+        binet === 'B' ? 'Hb ≥10 且 Plt ≥100k，≥3 個淋巴區域' : 'Hb ≥10 且 Plt ≥100k，<3 個淋巴區域';
+
+      // CLL-IPI
+      const stagePt = (raiStage >= 1 || binet !== 'A') ? 1 : 0;
+      const total = tp53 + ighv + b2m + stagePt + age;
+      const parts = [];
+      if (tp53) parts.push('del(17p)/TP53 (+4)');
+      if (ighv) parts.push('IGHV 未突變 (+2)');
+      if (b2m) parts.push('β2M >3.5 (+2)');
+      if (stagePt) parts.push('Rai I–IV / Binet B–C (+1)');
+      if (age) parts.push('年齡 >65 (+1)');
+
+      let group = 'Low (低風險)', os5 = '93%', hint = '若無症狀採觀察等待', color = 'var(--ok-border)';
+      if (total >= 7) {
+        group = 'Very High (極高風險)'; os5 = '23%'; hint = '達適應症時優選標靶/臨床試驗（禁用 CIT）'; color = 'var(--danger-border)';
+      } else if (total >= 4) {
+        group = 'High (高風險)'; os5 = '63%'; hint = '密切追蹤，達適應症時優先標靶治療'; color = 'var(--warn-border)';
+      } else if (total >= 2) {
+        group = 'Intermediate (中風險)'; os5 = '79%'; hint = '無症狀續觀察，有適應症始治療'; color = 'var(--accent)';
+      }
+
+      const ipiEl = document.getElementById('resIpi');
+      ipiEl.textContent = `${total} 分 · ${group}`;
+      ipiEl.style.color = color;
+      document.getElementById('resIpiSub').textContent = `歷史 CIT 時代 5 年 OS：${os5}`;
+      document.getElementById('resIpiHint').textContent = hint;
+      document.getElementById('resIpiBreakdown').textContent = parts.length ? parts.join('、') : '無不良因子';
+    }
+    ['cllAge', 'cllHb', 'cllPlt', 'cllAreas', 'cllB2m', 'cllIghv', 'cllTp53']
+      .forEach(id => document.getElementById(id).addEventListener('change', updateCllCalc));
+    updateCllCalc();
+
+    // Interactive Venetoclax TLS Risk Stratification
+    function updateTls() {
+      const node = document.getElementById('tlsNode').value;
+      const alc = document.getElementById('tlsAlc').value;
+      const crcl = document.getElementById('tlsCrcl').value;
+      const out = document.getElementById('tlsOut');
+
+      let risk = 'low';
+      if (node === 'ge10' || (node === '5to10' && alc === 'ge25')) risk = 'high';
+      else if (node === '5to10' || alc === 'ge25') risk = 'medium';
+
+      if (risk === 'high') {
+        out.className = 'callout danger';
+        out.innerHTML = `<strong>🔴 高風險 TLS (High Risk)</strong><br>
+          • <strong>處置建議</strong>：<strong>住院</strong>進行 20 mg 與 50 mg 首次給藥監測；給予 <strong>口服＋靜脈水化</strong>（150–200 mL/hr）；降尿酸藥 <strong>Allopurinol</strong> 並<strong>強烈考慮 Rasburicase</strong>（使用前建議驗 G6PD）。<br>
+          • <strong>實驗室監測</strong>：給藥前、給藥後 4、8、12、24 小時密測 K⁺、P、Ca²⁺、尿酸、Cr（防假性高血鉀）。可考慮先用 Obinutuzumab 或 cBTKi 減瘤。`;
+      } else if (risk === 'medium') {
+        out.className = 'callout warn';
+        out.innerHTML = `<strong>🟠 中風險 TLS (Medium Risk)</strong>${crcl === 'lt80' ? ' ＋ <strong>CrCl &lt;80 mL/min（建議住院監測！）</strong>' : ''}<br>
+          • <strong>處置建議</strong>：口服水化（1.5–2 L/日）並視需要追加靜脈水化；啟動前 2–3 天給予 <strong>Allopurinol</strong>（或 Febuxostat）。${crcl === 'lt80' ? '因腎功能 CrCl &lt;80 mL/min，依仿單建議於 20 mg 與 50 mg 首次給藥時<strong>住院監測</strong>。' : '可門診追蹤，給藥前及給藥後 6–8 小時、24 小時測生化。'}`;
+      } else {
+        out.className = 'callout ok';
+        out.innerHTML = `<strong>🟢 低風險 TLS (Low Risk)</strong><br>
+          • <strong>處置建議</strong>：門診口服水化（1.5–2 L/日）＋ 啟動前 2–3 天給予 <strong>Allopurinol</strong>；於每次劑量爬坡前、給藥後 6–8 小時與 24 小時監測電解質與腎功能。${crcl === 'lt80' ? '<br>註：CrCl &lt;80 mL/min 仍應留意水化平衡與腎功能變化。' : ''}`;
+      }
+    }
+    ['tlsNode', 'tlsAlc', 'tlsCrcl'].forEach(id => document.getElementById(id).addEventListener('change', updateTls));
+    updateTls();
+
+    // Active Nav Highlight & Back to Top
+    const sections = document.querySelectorAll('section.card');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 110) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Instant Full-Text Search & Highlight
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const searchCount = document.getElementById('searchCount');
+    const contentRoot = document.getElementById('contentRoot');
+
+    function clearHighlights() {
+      contentRoot.querySelectorAll('mark.hl').forEach(m => {
+        const parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
+    }
+
+    function performSearch() {
+      const q = searchInput.value.trim();
+      clearHighlights();
+      searchClear.style.display = q ? 'block' : 'none';
+      if (!q) {
+        sections.forEach(s => s.style.display = '');
+        searchCount.textContent = '';
+        return;
+      }
+      const regex = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      let totalMatches = 0;
+      let firstMark = null;
+
+      sections.forEach(sec => {
+        sec.querySelectorAll('.tab-panel').forEach(p => p.classList.add('active'));
+        let secMatches = 0;
+        const walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {
+          acceptNode: node => {
+            if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            const tag = node.parentNode.tagName;
+            if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'OPTION') return NodeFilter.FILTER_REJECT;
+            return regex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        });
+        const nodes = [];
+        let n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(textNode => {
+          const frag = document.createDocumentFragment();
+          let lastIdx = 0;
+          const str = textNode.nodeValue;
+          regex.lastIndex = 0;
+          let m;
+          while ((m = regex.exec(str)) !== null) {
+            if (m.index > lastIdx) frag.appendChild(document.createTextNode(str.slice(lastIdx, m.index)));
+            const mark = document.createElement('mark');
+            mark.className = 'hl';
+            mark.textContent = m[0];
+            frag.appendChild(mark);
+            if (!firstMark) firstMark = mark;
+            secMatches++;
+            totalMatches++;
+            lastIdx = m.index + m[0].length;
+          }
+          if (lastIdx < str.length) frag.appendChild(document.createTextNode(str.slice(lastIdx)));
+          textNode.parentNode.replaceChild(frag, textNode);
+        });
+        sec.style.display = secMatches > 0 ? '' : 'none';
+      });
+
+      searchCount.textContent = totalMatches > 0 ? `${totalMatches} 筆符合` : '無符合結果';
+      if (firstMark) firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    let debounce;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(performSearch, 200);
+    });
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      performSearch();
+      searchInput.focus();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  </script>
+</body>
+</html>
